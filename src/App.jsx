@@ -1,31 +1,15 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import Button from "./components/Button/Button";
-import Display from "./components/Display/Display";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SamplePage from "./pages/SamplePage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  useEffect(() => {
-    console.log("count:", count);
-
-    if (count > 15) {
-      setCount(0);
-    }
-  }, [count]);
-
   return (
-    <>
-      <h1>Hello World</h1>
-      <Button type="submit" disable={true} onClick={handleClick}>
-        <span>ボタン</span>
-      </Button>
-      <Display count={count} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sample-page" element={<SamplePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
