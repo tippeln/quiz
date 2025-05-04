@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
 import Display from "./components/Display/Display";
@@ -9,6 +9,15 @@ function App() {
   const handleClick = () => {
     setCount(count + 1);
   };
+
+  useEffect(() => {
+    console.log("count:", count);
+
+    if (count > 15) {
+      setCount(0);
+    }
+  }, [count]);
+
   return (
     <>
       <h1>Hello World</h1>
