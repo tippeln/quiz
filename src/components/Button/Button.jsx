@@ -1,7 +1,7 @@
 import styles from "./Buttun.module.css";
 
 function Button(props) {
-  const { type, diabled, children, onClick } = props;
+  const { type, diabled, onClick, children } = props;
 
   return (
     <button
